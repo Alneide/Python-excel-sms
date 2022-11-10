@@ -1,6 +1,11 @@
 import pandas as pd
 from twilio.rest import Client
 
+account_sid = "AC631b9361e8b67690bcdc1c53a4558624"
+# Your Auth Token from twilio.com/console
+auth_token = "26fb818d42b70fc98298209616c7318b"
+client = Client(account_sid, auth_token)
+
 # passo a passo
 
 # Abrir os 6 arquivos em Excel
@@ -13,14 +18,6 @@ for mes in lista_meses :
         vendas = tabela_vendas.loc[tabela - vendas["vendas"] > 55000, "Vendas"].values[0]
 
     print (f"No mês{mes} alguém bateu a meta. Vendedor:  {Vendedor}, Vendas: {Vendas}")
-
- 
-    # Your Account SID from twilio.com/console
-    account_sid = "ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-    # Your Auth Token from twilio.com/console
-    auth_token = "your_auth_token"
-
-    client = Client(account_sid, auth_token)
 
     message = client.messages.create(
         to="+15558675309",

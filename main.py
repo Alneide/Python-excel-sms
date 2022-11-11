@@ -22,7 +22,7 @@ for mes in lista_meses :
     message = client.messages.create(
         to="+15558675309",
         from_="+15017250604",
-        body="Hello from Python!")
+        body="No mês{mes} alguém bateu a meta. Vendedor:  {Vendedor}, Vendas: {Vendas}"
 
     print(message.sid)
 
